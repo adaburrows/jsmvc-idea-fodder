@@ -84,7 +84,7 @@ form_view.prototype.make = function() {
     this.form.append("<form>"+this.make_html(this.fieldset)+"</form>");
   }
 
-  this.form.append("<div id=\""+this.form_selector+"_nav\"><form><input type=\"button\" id=\""+this.form_selector+"_cancel\" name=\""+this.form_selector+"_cancel\" value=\"Cancel\" /><input type=\"button\" id=\""+this.form_selector+"_ok\" value=\"OK\" /></form></div>");
+  this.form.append("<div id=\""+this.form_selector+"_nav\"><form><input type=\"button\" class=\"button\" id=\""+this.form_selector+"_cancel\" name=\""+this.form_selector+"_cancel\" value=\"Cancel\" /><input type=\"button\" class=\"button\" id=\""+this.form_selector+"_ok\" value=\"OK\" /></form></div>");
 
   var self = this;
   $("#"+this.form_selector+"_cancel").click(function(e){self.cancel(e, self)});
@@ -107,11 +107,6 @@ form_view.prototype.show = function() {
   this.make();
   this.bind_values();
   this.form.show();
-  this.form.css({
-    position: "absolute",
-    width: "60%",
-    height: "auto"
-  });
   this.center();
 };
 

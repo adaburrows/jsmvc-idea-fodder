@@ -47,9 +47,9 @@
 
     <div id="topbar" class="bar longbar">
       <form class="nav">
-        <input type="button" id="sched_view_by_position" name="sched_view_by_position" value="Position" />
-        <input type="button" id="sched_view_by_shift" name="sched_view_by_shift" value="Shift" />
-        <input type="button" id="sched_view_sbs" name="sched_view_sbs" value="Side-by-side" />
+        <input type="button" class="button" id="sched_view_by_position" name="sched_view_by_position" value="Position" />
+        <input type="button" class="button" id="sched_view_by_shift" name="sched_view_by_shift" value="Shift" />
+        <input type="button" class="button" id="sched_view_sbs" name="sched_view_sbs" value="Side-by-side" />
       </form>
     </div>
 
@@ -57,16 +57,16 @@
 
     <div id="lownav">
       <form class="nav">
-        <input type="button" id="sched_view_draft" name="sched_draft" value="View Draft" />
-        <input type="button" id="sched_next" name="sched_next" value="See Next Schedule" />
+        <input type="button" class="button" id="sched_view_draft" name="sched_draft" value="View Draft" />
+        <input type="button" class="button" id="sched_next" name="sched_next" value="See Next Schedule" />
       </form>
     </div>
 
     <div id="bottombar" class="bar longbar">
       <form class="nav">
-        <input type="button" id="" name="" value="Standard" />
-        <input type="button" id="" name="" value="Shift" />
-        <input type="button" id="" name="" value="Side-by-side" />
+        <input type="button" class="button" id="" name="" value="Standard" />
+        <input type="button" class="button" id="" name="" value="Shift" />
+        <input type="button" class="button" id="" name="" value="Side-by-side" />
       </form>
     </div>
 </div>
@@ -77,12 +77,11 @@
   <h2>Employees</h2>
 
   <div id="employeebar" class="bar longbar">
-    <form class="nav"><input id="f_emp_add" name="f_emp_add" type="button" value="+ New Employee" /></form>
     <form class="nav">
+      <input id="f_emp_add" name="f_emp_add" type="button" class="button" value="+ New Employee" />
       <input id="f_emp_name" name="f_emp_name" type="text" width="20" />
-      <input id="f_emp_view" name="f_emp_view" type="submit" value="View" />
-    </form>
-    <form class="nav"><input id="f_emp_delete" name="f_emp_delete" type="button" value="Delete" /></form>
+      <input id="f_emp_view" name="f_emp_view" type="submit" class="button" value="View" />
+      <input id="f_emp_delete" name="f_emp_delete" type="button" class="button" value="Delete" />
     </form>
   </div>
 
