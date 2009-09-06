@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Schedule Test</title>
+
+  <script type="text/javascript" language="javascript" src="script/jquery-1.3.2.js"></script>
+  <script type="text/javascript" langauge="javascript" src="script/jquery.autocomplete.js"></script>
+  <script type="text/javascript" language="javascript" src="script/test_data.js"></script>
+  <script type="text/javascript" language="javascript" src="script/form.js"></script>
+  <script type="text/javascript" language="javascript" src="script/application.js"></script>
+
+  <!---->
+
+  <link media="screen" type="text/css" rel="stylesheet" href="css/jquery.autocomplete.css" />
+  <link media="screen" type="text/css" rel="stylesheet" href="css/template.css" />
+  <link media="screen" type="text/css" rel="stylesheet" href="css/scheme.css" />
+</head>
+
+<body>
+  <div id="wrapper">
+
+    <div id="header">
+      <h1 id="heading">Schedule Test</h1>
+    </div>
+
+    <div id="leftbar" class="bar">
+      <ul class="navigation">
+        <li id="m1" class="main">Home</li>
+        <li id="m2" class="main">Employees</li>
+        <li id="m3" class="main">Shifts</li>
+        <li id="m4" class="main">Employee Requests</li>
+        <li id="m5" class="main">Event Calendar</li>
+        <li id="m6" class="main">Schedule Archive</li>
+        <li id="m7" class="main">Send Message</li>
+        <li id="m8" class="main">Monitoring System</li>
+      </ul>
+    </div>
+
+    <div id="content">
+
+<!-- Begin Home Page -->
+<div id="home" class="page">
+
+    <h2>Current Schedule</h2>
+
+    <div id="topbar" class="bar longbar">
+      <form class="nav">
+        <input type="button" id="sched_view_by_position" name="sched_view_by_position" value="Position" />
+        <input type="button" id="sched_view_by_shift" name="sched_view_by_shift" value="Shift" />
+        <input type="button" id="sched_view_sbs" name="sched_view_sbs" value="Side-by-side" />
+      </form>
+    </div>
+
+    <div id="schedule_table"></div>
+
+    <div id="lownav">
+      <form class="nav">
+        <input type="button" id="sched_view_draft" name="sched_draft" value="View Draft" />
+        <input type="button" id="sched_next" name="sched_next" value="See Next Schedule" />
+      </form>
+    </div>
+
+    <div id="bottombar" class="bar longbar">
+      <form class="nav">
+        <input type="button" id="" name="" value="Standard" />
+        <input type="button" id="" name="" value="Shift" />
+        <input type="button" id="" name="" value="Side-by-side" />
+      </form>
+    </div>
+</div>
+<!-- END -->
+
+<!-- Begin Employees Page -->
+<div id="employees" class="page">
+  <h2>Employees</h2>
+
+  <div id="employeebar" class="bar longbar">
+    <form class="nav"><input id="f_emp_add" name="f_emp_add" type="button" value="+ New Employee" /></form>
+    <form class="nav">
+      <input id="f_emp_name" name="f_emp_name" type="text" width="20" />
+      <input id="f_emp_view" name="f_emp_view" type="submit" value="View" />
+    </form>
+    <form class="nav"><input id="f_emp_delete" name="f_emp_delete" type="button" value="Delete" /></form>
+    </form>
+  </div>
+
+  <div id="employee">
+    <h1 id="emp_name" class="emp_name"></h1>
+
+    <div id="emp_contact_info" class="emp_info">
+      <!--<span class="emp_contact">Contact info:</span>-->
+      <dl id="contact_info" class="emp_info">
+        <dt>Phone</dt><dd id="emp_phone_cell" class="emp_contact"></dd>
+        <dt>Alt. Phone</dt><dd id="emp_phone_alt" class="emp_contact"></dd>
+        <dt>Email</dt><dd id="emp_email" class="emp_contact"></dd>
+        <dt>Twitter</dt><dd id="emp_twitter" class="emp_contact"></dd>
+      </dl>
+    </div>
+
+    <div id="emp_stats" class="emp_info">
+      <dl id="stats" class="emp_info">
+        <dt>Average hrs/wk</dt><dd id="emp_avg_hrs"></dt>
+        <dt>YTD schedule requests</dt><dd id="emp_sched_reqs"></dt>
+        <dt>Sick days</dt><dd id="emp_sick_days"></dt>
+        <dt>Approved Requests</dt><dd id="emp_to_reqs_appr"></dt>
+      </dl>
+    </div>
+
+    <div id="emp_pos_info" class="emp_info">
+      <dl id="position_info" class="emp_info">
+        <dt>Position</dt><dd id="emp_position"></dd>
+        <dt>Trainer</dt><dd id="emp_trainer"></dd>
+        <dt>FT</dt><dd id="emp_ft"></dd>
+        <dt>Requested hours</dt><dd id="emp_req_hours"></dd>
+        <dt>Rating</dt><dd id="emp_rating"></dd>
+      </dl>      
+    </div>
+
+    <div id="emp_sched_limits" class="emp_info">
+      <div id="schedule_limits"></div>
+    </div>
+
+  </div>
+
+</div>
+<!-- END -->
+
+<!-- Begin Shifts Page-->
+<div id="shifts" class="page">
+  <h2>Shifts</h2>
+</div>
+<!-- END -->
+
+<!-- Begin Requests Page-->
+<div id="requests" class="page">
+  <h2>Employee Request</h2>
+</div>
+<!-- END -->
+
+<!-- Begin Events Page -->
+<div id="events" class="page">
+  <h2>Events Calendar</h2>
+</div>
+<!-- END -->
+
+<!-- Begin Archives Page -->
+<div id="archives" class="page">
+  <h2>Archives</h2>
+</div>
+<!-- END -->
+
+<!-- Begin Messaging Page -->
+<div id="messages" class="page">
+  <h2>Messages</h2>
+</div>
+<!-- END -->
+
+<!-- Begin Monitoring Page -->
+<div id="monitor" class="page">
+  <h2>Employee Monitoring</h2>
+</div>
+<!-- END -->
+
+    </div>
+
+    <div id="footer">
+      <div class="foot">Copyright 2009 Valley Business Solutions, LLC.</div>
+    </div>
+
+  </div>
+</body>
+</html>

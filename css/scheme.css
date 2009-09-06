@@ -1,0 +1,115 @@
+/*============================================================
+  Main
+  ============================================================*/
+body {
+  background: #666;//59a99c;
+}
+
+#wrapper {
+  background: #fff;
+}
+
+#header {
+  background: #aaa;
+  color: #fff;
+}
+
+#footer {
+  background: #aaa;
+}
+
+#main {
+  background: #fff;
+}
+
+#content {
+  background: #fff;
+}
+
+.popup_form {
+  background: #fff;
+  //width: 60%;
+}
+
+/*============================================================
+  Menu
+  ============================================================*/
+
+.bar {
+  background: #ddd;
+}
+
+#leftbar {
+}
+
+#rightbar {
+}
+
+
+ul.navigation {
+}
+
+ul.navigation li {
+  color: #000;
+  text-decoration: none;
+}
+
+ul.navigation li:hover {
+  color: #333;
+  font-style: italic;
+}
+
+ul.navigation li:active {
+  color: #666;
+}
+
+ul.navigation li:visited {
+  
+}
+
+#lownav {
+}
+
+ul.navigation li.main {
+  background: #aaa;
+}
+
+ul.navigation li.minor {
+}
+
+/*============================================================
+  Table
+  ============================================================*/
+.schedule {
+}
+
+.schedule .empty {
+  background: transparent;
+}
+
+.sched_day {
+  background: #ccd;
+}
+
+.sched_month {
+  background: #ccd;
+}
+
+.sched_date {
+  background: #eee;
+}
+
+.sched_pos{
+  background: #ddf;
+}
+
+.sched_emp{
+  background: #cfc;
+}
+
+.sched_emp_name{
+  background: #afa;
+}
+
+.sched_time {
+}

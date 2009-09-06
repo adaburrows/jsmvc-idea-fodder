@@ -1,0 +1,235 @@
+/*=====================================================
+  General site layout
+  ---------------------------------
+
+
+  =====================================================*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+}
+
+#wrapper {
+  margin: 0 auto;
+  width: 85%;
+}
+
+#header {
+  padding: 1%;
+}
+
+#main {
+  margin:0;
+  padding:0;
+}
+
+#content {
+  margin: 0em;
+  padding: 0em;
+  min-height: 40em;
+}
+
+.page {
+  display: block;
+  margin: 0 1% 0 23.5%;
+}
+
+#footer {
+  padding: 1%;
+}
+
+.foot {
+  display: block;
+}
+
+/*============================================================
+  Menu Layout
+  ============================================================*/
+
+.bar {
+  padding: 0em 0.66%;
+}
+
+#leftbar {
+  float: left;
+  margin: 0 1% 0 0;
+  width: 20%;
+  overflow: hidden;
+  font-size: 120%;
+}
+
+.longbar {
+  padding: 0.33%;
+  margin: 0%;
+  overflow: hidden;
+  font-size: 120%;
+}
+
+ul.navigation {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#lownav {
+}
+
+ul.navigation li.main {
+  padding: 0.6em;
+  margin: 0.6em 0%;
+  text-align: center;
+}
+
+ul.navigation li.minor {
+  padding: 0%;
+  margin: 0.6% 0%;
+}
+
+.longbar ul.navigation {
+  display: inline;
+  //width: 100%;
+}
+
+.opt{
+  font-weight: bold;
+}
+
+.longbar ul.navigation li.minor {
+  padding: 0% 1%;
+  margin: 0.6% 0%;
+  display: inline;
+}
+
+.longbar form.nav {
+  padding: 0% 1%;
+  margin: 0.6% 0%;
+  display: inline;
+}
+
+.longbar form.navigation input{
+  display: inline;
+}
+
+.selected {
+  font-style: italic;
+}
+
+/*============================================================
+  Table Layout
+  ============================================================*/
+.schedule {
+  font-size: 120%;
+}
+
+table.schedule {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.schedule td {
+  padding: 0 0.33%;
+}
+
+.sched_day {
+}
+
+.sched_month {
+  text-align: center;
+}
+
+.sched_date {
+}
+
+.sched_pos{
+  text-align: left;
+}
+
+.sched_emp{
+}
+
+.sched_emp_name{
+  text-align: right;
+}
+
+.sched_time {
+}
+
+.wide {
+  width: 15%;
+}
+
+.sched {
+  width: 12.0%;
+  text-align: center;
+}
+
+/*============================================================
+  Employee Stats Layout
+  ============================================================*/
+#employee {
+  margin: 1% 0%;
+}
+
+div.emp_info {
+  padding: 1%;
+  margin: 0em;
+  height: 18em;
+}
+
+div.emp_info dl {
+}
+
+div.emp_info dl dd {
+  font-size: 150%;
+  line-height: 75%;
+  margin: 0%;
+  padding-bottom: 0.33em;
+  text-indent: 0%;
+  text-align: center;
+}
+
+div.emp_info dl dt {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#emp_contact_info {
+  width: 48%;
+  background: #ccc;
+  float: left;
+}
+
+#emp_stats {
+  width: 48%;
+  background: #eee;
+  margin-left: 50%;
+}
+
+#emp_pos_info {
+  width: 48%;
+  background: #eee;
+  float: left;
+}
+
+#emp_sched_limits {
+  width: 48%;
+  background: #ccc;
+  margin-left: 50%;
+}
+
+/* ===========================================================
+   Form CSS styles
+   ===========================================================*/
+.form {
+  padding: 1em;
+  border: solid 1px #000;
+  background: #fff;
+}
+
+.form fieldset {
+  border: solid 1px #aaa;
+  margin: 0.66em;
+}
+
