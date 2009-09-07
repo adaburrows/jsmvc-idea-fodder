@@ -38,7 +38,7 @@ emp_autocomplete_update = function() {
   }).result(function(event, data, formatted){
     $(this).val(formatted);
     display_employee(formatted);
-  });
+  }).val("");
 
 };
 
@@ -137,7 +137,6 @@ display_schedule_limits = function(sched) {
 
   for (day in sched) {
     output += "<td class=\"sched_time sched\">"+sched[day]+"</td>";
-    //alert(day + ": " +sched[day]);
   }
 
   output += "</tr></tbody></table>";
@@ -148,36 +147,36 @@ edit_employee = function (emp_ref) {
   var emp_form = new form_view("employee", "Edit Employee");
   emp_form.make_paged();
   emp_form.add_page({
-    emp_name:{type:"group", label:"Employee Name", group:{
-      emp_name_first:{type:"text", label:"First Name"},
-      emp_name_mid:{type:"text", label:"Middle Initial"},
-      emp_name_last:{type:"text", label:"Last Name"}}
+    emp_name:{type:"group_input", label:"Employee Name", elements:{
+      emp_name_first:{type:"text_input", label:"First Name"},
+      emp_name_mid:{type:"text_input", label:"Middle Initial"},
+      emp_name_last:{type:"text_input", label:"Last Name"}}
     },
-    emp_phone:{type:"group", label:"Phone", group:{
-      emp_phone_cell:{type:"text", label:"Cell",},
-      emp_phone_alt:{type:"text", label:"Alternate"}}
+    emp_phone:{type:"group_input", label:"Phone", elements:{
+      emp_phone_cell:{type:"text_input", label:"Cell",},
+      emp_phone_alt:{type:"text_input", label:"Alternate"}}
     },
-    emp_ecomm:{type:"group", label:"Electronic Contact", group:{
-      emp_email:{type:"text", label:"Email"},
-      emp_twitter:{type:"text", label:"Twitter Name"}}
+    emp_ecomm:{type:"group_input", label:"Electronic Contact", elements:{
+      emp_email:{type:"text_input", label:"Email"},
+      emp_twitter:{type:"text_input", label:"Twitter Name"}}
     }
   });
   emp_form.add_page({
-    emp_hr:{type:"group", label:"Position Details", group:{
-      emp_position:{type:"text", label:"Position"},
-      //emp_trainer:{type:"check", label:"Trainer?"},
-      //emp_ft:{type:"check", label:"Full-time?"},
-      emp_req_hours:{type:"text", label:"Requested Hours"},
-      emp_rating:{type:"text", label:"Employee Rating"},
-      emp_hire_date:{type:"text", label:"Date Hired"},
-      emp_location:{type:"text", label:"Location"}}
+    emp_hr:{type:"group_input", label:"Position Details", elements:{
+      emp_position:{type:"text_input", label:"Position"},
+      emp_trainer:{type:"choice", label:"Trainer"},
+      emp_ft:{type:"choice", label:"Full-time"},
+      emp_req_hours:{type:"text_input", label:"Requested Hours"},
+      emp_rating:{type:"text_input", label:"Employee Rating"},
+      emp_hire_date:{type:"text_input", label:"Date Hired"},
+      emp_location:{type:"text_input", label:"Location"}}
     }
   });
   /*emp_form.add_page({
     
   });*/
 
-  emp_form.bind(emp_ref);
+  emp_form.bind_data(emp_ref);
 
   emp_form.set_callback(function (){
     emp_autocomplete_update();

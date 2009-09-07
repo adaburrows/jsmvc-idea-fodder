@@ -1,67 +1,147 @@
-
-/* ====================================================================================================================*/
-
-
 /*=================================================
-  page Framework
+  View Framework
+  -------------------------------------------------
+  Contains all the nescesarry code to add pages to 
+  the view controller.
+    +Each view uses the data field names as a
+       consistent data binding between view and model
+    +Each view can be extended to contain any type
+       of field
+    +Document onLoad initializes view controller
+       and routes events to controller functions
   =================================================*/
-
 // Define page data structure
-// --------------------------
-function page(pname, ptitle) {
-  this.page_name = pname;
-  this.page_title = ptitle;
-  this.page_elements = new Object();
+// ------------------------------------------------
+function View(v_name, v_title) {
+  this.data_ref = new Object();
+  this.callback = new function(){};
 
-  this.page_selector = "page_"+this.page_name;
+  this.view_elements = new Object();
+  this.view_title = v_title;
+  this.view_type = "view";
+  this.view_name = v_name;
+  this.view_selector = this.view_type+"_"+this.view_name+"_";
   this.body = $("body");
-  this.body.append("<div class=\"page\" id=\""+this.page_selector+"\"></div>");
-  this.page = $("#"+this.page_selector);
-  this.page.hide();
+  this.view = new Object;
+
+  this.has_pages = false;
+  this.pages = new Array();
+  this.curr_page = 0;
+  this.last_page = 0;
 }
 
+View.prototype = new html_maker;
+
 // Define page methods
-// -------------------
-page.prototype.set_items = function(items) {
-  this.elements = items;
+// ------------------------------------------------
+View.prototype.bind_data = function(data_bind) {
+  this.data_ref = data_bind;
 };
 
-page.prototype.make = function() {
-  this.page.append(this.make_html(this.fieldset));
-};
-
-page.prototype.show = function() {
-  this.make();
-  this.page.show();
-};
-
-page.prototype.destroy = function() {
-  this.page.remove();
-};
-
-//Main html generator function
-page.prototype.make_html = function(fset) {
-  html = "";
-  for (field in fset) {
-    html += this[fset[field].type](field, fset[field]);
+View.prototype.copy_values_to_fields = function() {
+  for (entry in this.data_ref) {
+    try{
+      var current = $("#"+this.view_selector+entry);
+      current.val(this.data_ref[entry]);
+    }
+    catch(e) {}
   }
-  return html;
 };
+
+View.prototype.copy_fields_to_data = function() {
+  for (entry in this.data_ref) {
+    try {
+      var current = $("#"+this.view_selector+entry);
+      this.data_ref[entry] = current.val();
+    }
+    catch(e) {}
+  }
+  this.callback();
+};
+
+View.prototype.set_callback = function(cb) {
+  this.callback = cb;
+};
+
+View.prototype.make_paged = function() {
+  this.has_pages = true;
+};
+
+View.prototype.make_nonpaged = function() {
+  this.has_pages = false;
+};
+
+View.prototype.add_page = function(items) {
+  this.pages.push(items);
+};
+
+View.prototype.set_container = function(cont) {
+  this.container = cont;
+};
+
+View.prototype.set_elements = function(elements) {
+  this.elements = elements;
+};
+
+View.prototype.create = function() {
+  (this.container||this.body).append("<div class=\""+this.view_type+"\" id=\""+this.view_selector+"\"></div>");
+  this.view = $("#"+this.view_selector);
+  this.view.hide();
+  this.view.append($("<h2 class=\""+this.view_type+"\">"+this.view_title+"</h2>"));
+};
+
+View.prototype.make = function() {
+  this.create();
+  this.view.append(this.make_html(this.view_elements));
+};
+
+View.prototype.center = function() {
+  var height = $(window).height();
+  var top = (height-this.view.height())/2;
+  var left = (this.body.width()-this.view.width())/2;
+  if (top < 0)
+    top = 0;
+  if (left < 0)
+    left = 0;
+  this.view.css({
+    top: top +"px",
+    left: left +"px"
+  });
+};
+
+View.prototype.show = function() {
+  this.make();
+  this.view.show();
+  this.copy_values_to_fields();
+  this.center();
+};
+
+View.prototype.destroy = function() {
+  this.view.remove();
+};
+
 
 /* ======================================================
-   Define methods to create the type of field user wants
+   Define View Controller
    ------------------------------------------------------
-   This section extends the type of fields available
+   Take Data and Page Models to create specified view
    ======================================================*/
-page.prototype.text = function (field, data) {
-  return("<label for=\"field\">"+data.label+"</label><input type=\"text\" id=\""+field+"\" name=\""+field+"\" />");
+function Views () {
+  this.current_view = new Object();
+}
+
+Views.prototype.add = function(view_obj) {
+  this[view_obj.view_name] = view_obj;
 };
 
-page.prototype.group = function(field, data) {
-  html = "<fieldset id=\""+field+"\"><legend>"+data.label+"</legend>"+this.make_html(data.group)+"</fieldset>";
-  return html;
+Views.prototype.show = function(view_name) {
+  try {
+    this.current_view.destroy();
+  } catch (e) {}
+  this.current_view = this[view_name];
+  this.current_view.make();
+  this.current_view.show();
 };
-
 
 /* ===============================================================================================================*/
 
@@ -69,7 +149,7 @@ page.prototype.group = function(field, data) {
    Define Employee Model
    ======================================================*/
 
-function employee() {
+function Employee() {
   this.emp_name_first="";
   this.emp_name_middle="";
   this.emp_name_last="";
@@ -99,27 +179,41 @@ function employee() {
 /* ======================================================
    Define Employee View
    ======================================================*/
-
+/*
 function EmpView () {
-  this.view = new page("employee", "Employees");
+  this.view = new page("employee");
   this.view.add_items({
-    top_bar:{type:"div_form", klas:"longbar", elements:{
+    title:{type:title, title:"Employees"},
+    top_bar:{type:"longbar", elements:{
       f_add_emp:{type:"button", val:"+ Add Employee"},
-      f_emp_name:{type:"text"},
+      f_emp_name:{type:"text_input"},
+      f_emp_view:{type:"submit", val:"View"}
       f_emp_edit:{type:"button", val:"Edit"},
-      f_emp_delete:{type:"button", val:"Delete"}
+      f_emp_delete:{type:"button", val:"Delete"}}
     },
-    employee:{type:"div", klas:"", elements:{
-      insert_element_here:{type:"div", klas:""}
+    employee:{type:"div", elements:{
+      emp_name:{type:"h1"},
+      emp_contact_info:{type:"div", elements:{
+        
+      },
+      emp_stats:{type:"div", elements:{
+        
+      },
+      emp_pos_info::{type:"div", elements:{
+        
+      },
+      emp_sched_limits:{type:"div", elements:{
+        
+      }
     }
   });
 }
-
+*/
 
 /* ======================================================
    Define Employee Controller
    ======================================================*/
-
+/*
 function EmpCon () {
   this.employees = new Array();
   this.emp_current = new Object();
@@ -145,4 +239,4 @@ EmpCon.prototype.emp_edit = function () {
 
 };
 
-
+*/
