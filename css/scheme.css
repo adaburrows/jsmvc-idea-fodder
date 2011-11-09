@@ -2,29 +2,29 @@
   Main
   ============================================================*/
 body {
-  background: url('../images/background.jpg') #000;//666//59a99c;
+  background: url('../images/background-sandy-tile.jpg') repeat #000;//666//59a99c;
 }
 
 #wrapper {
-  background: #f4eccb;
+  background: url('../images/paper-texture.png') repeat #e0f9b1;
 }
 
 #header {
-  background: #3a2916;
-  color: #f4eccb;
+  background: #7682a6;
+  color: #FFF;//#e0f9b1;
 }
 
 #footer {
-  background: #3a2916;
-  color: #f4eccb;
+  background: #7682a6;
+  color: #e0f9b1;
 }
 
 #main {
-  background: #f4eccb;
+  background: url('../images/paper-texture.png') repeat #e0f9b1;
 }
 
 #content {
-  background: #f4eccb;
+  background: url('../images/paper-texture.png') repeat #e0f9b1;
 }
 
 .popup_form {
@@ -39,16 +39,17 @@ body {
 }
 
 .longbar {
-  background: #a37744;
+  background: #76a682;
 }
 
 ul.navigation li {
-  color: #f4eccb;
+  color: #fff;
   text-decoration: none;
+  font-family: sans-serif;
 }
 
 ul.navigation li:hover {
-  color: #f4eccb;
+  color: #fff;
   font-style: italic;
 }
 
@@ -63,7 +64,7 @@ ul.navigation li:visited {
 }
 
 ul.navigation li.main {
-  background: #523a1f;
+  background: #7682a6;
 }
 
 /*============================================================
@@ -77,11 +78,11 @@ ul.navigation li.main {
 }
 
 .sched_day {
-  background: #ccd;
+  background: #7682a6;
 }
 
 .sched_month {
-  background: #ccd;
+  background: #7682a6;
 }
 
 .sched_date {
@@ -89,18 +90,37 @@ ul.navigation li.main {
 }
 
 .sched_pos{
-  background: #ddf;
+  background: #76a682;
 }
 
 .sched_emp{
-  background: #cfc;
+  background: #ccd;
 }
 
 .sched_emp_name{
-  background: #afa;
+  background: #ccd;
 }
 
 .sched_time {
+}
+
+.sched_time:hover {
+  background: #7682a6;
+}
+
+
+/* ======================================================
+   Genral view styling
+   ======================================================*/
+h2.view_title {
+  font-family: sans-serif;
+  border-bottom: solid 2px #76a682;
+}
+
+h2.form_title {
+  font-family: sans-serif;
+  background: #76a682;
+  padding: 0.33em;
 }
 
 
@@ -109,33 +129,34 @@ ul.navigation li.main {
    ======================================================*/
 
 
-#emp_contact_info {
-  background: #a37744;
+#view_employee_emp_contact_info {
+  background: #76a682;
 }
 
-#emp_stats {
-  background: #f4eccb;
+#view_employee_emp_stats {
 }
 
-#emp_pos_info {
-  background: #f4eccb;
+#view_employee_emp_pos_info {
 }
 
-#emp_sched_limits {
-  background: #a37744;
+#view_employee_emp_sched_limits {
+  background: #76a682;
 }
 
-
-
-.form {
+div.form {
   border: solid 1px #000;
-  background: #f4eccb;
+  background: url('../images/paper-texture.png') repeat #e0f9b1;
+}
+
+.form fieldset {
+  border: solid 1px #000;
+  margin: 0.66em;
 }
 
 h2.form {
   border: none;
-  color: #f4eccb;
-  background: #3a2916;
+  color: #e0f9b1;
+  background: #7682a6;
 }
 
 input {
@@ -143,8 +164,8 @@ input {
 }
 
 .button {
-  background: #523a1f;
-  color: #f4eccb;
+  background: #7682a6;
+  color: #fff;
   border: 1px solid #000;
 }
 

@@ -36,6 +36,11 @@ body {
   margin: 0 1% 0 23.5%;
 }
 
+.view {
+  display: block;
+  margin: 0 1.5% 0 22%;
+}
+
 #footer {
   padding: 1%;
 }
@@ -60,13 +65,13 @@ body {
   font-size: 120%;
 }
 
+#lownav {
+}
+
 ul.navigation {
   padding: 0;
   margin: 0;
   list-style: none;
-}
-
-#lownav {
 }
 
 ul.navigation li.main {
@@ -157,20 +162,20 @@ table.schedule {
 /*============================================================
   Employee Stats Layout
   ============================================================*/
-#employee {
+##view_employee_employee {
   margin: 1% 0%;
 }
 
-div.emp_info {
+#view_employee_employee div {
   padding: 1%;
-  margin: 0em;
+  margin: 0%;
   height: 18em;
 }
 
-div.emp_info dl {
+#view_employee_employee div dl {
 }
 
-div.emp_info dl dd {
+#view_employee_employee div dl dd {
   font-size: 150%;
   line-height: 75%;
   margin: 0%;
@@ -179,29 +184,29 @@ div.emp_info dl dd {
   text-align: center;
 }
 
-div.emp_info dl dt {
+#view_employee_employee div dl dt {
   text-transform: uppercase;
   text-align: center;
 }
 
-#emp_contact_info {
+#view_employee_emp_contact_info {
   width: 48%;
   float: left;
 }
 
-#emp_stats {
+#view_employee_emp_stats {
   width: 48%;
-  margin-left: 50%;
+  margin-left: 50% !important;
 }
 
-#emp_pos_info {
+#view_employee_emp_pos_info {
   width: 48%;
   float: left;
 }
 
-#emp_sched_limits {
+#view_employee_emp_sched_limits {
   width: 48%;
-  margin-left: 50%;
+  margin-left: 50% !important;
 }
 
 /* ===========================================================
@@ -218,9 +223,27 @@ div.form {
   height: auto;
 }
 
-.form fieldset {
-  border: solid 1px #aaa;
-  margin: 0.66em;
+div.ul {
+  width: 100%;
+  display: block;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+
+ul.form {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+ul.form li {
+  width: 28.66%;
+  float: left;
+  padding: 0 2em 0 0;
+  margin: 0;
+  //text-align: center;
 }
 
 .button {
@@ -231,7 +254,29 @@ input {
   margin: 0.33em 0em;
 }
 
-label {
-  display: inline-block;
-  width: 20em;
+ul.form input {
+  width: 100%;
 }
+
+legend {
+  line-height: 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+}
+
+label {
+  display: block;
+  letter-spacing: 0.2em;
+  line-height: 0.4em;
+  font-family: sans-serif;
+  font: "Heveltica", "Garamond", "Arial";
+  //text-transform: uppercase;
+}
+
+#form_edit_employee_emp_name_mid{
+  width: 4em;
+}
+
+
+
+
